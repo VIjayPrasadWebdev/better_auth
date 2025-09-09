@@ -4,7 +4,7 @@ import Beams from "../ui/BeamsModel";
 import Plasma from "./PlasaModel";
 export default function HeroUi() {
   return (
-    <section className="absolute h-full w-full">
+    <section className="absolute h-full w-full hidden sm:block">
       <Plasma
         color="#430bf9"
         speed={0.6}

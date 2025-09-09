@@ -56,7 +56,7 @@ export default function LoginUi() {
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full cursor-pointer bg-purple-500">
+        <Button type="submit" className="w-full cursor-pointer  bg-blue-700">
           Login
         </Button>
         <Separator className="my-3" />
