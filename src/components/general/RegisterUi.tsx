@@ -66,7 +66,7 @@ export default function RegisterUi() {
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full cursor-pointer bg-purple-500">
+        <Button type="submit" className="w-full cursor-pointer bg-blue-700">
           Create an Account
         </Button>
 
