@@ -1,22 +1,17 @@
 import React from "react";
 import GradientBlinds from "@/components/ui/GradientModel";
-
+import Beams from "../ui/BeamsModel";
+import Plasma from "./PlasaModel";
 export default function HeroUi() {
   return (
     <section className="absolute h-full w-full">
-      <GradientBlinds
-        gradientColors={["#FF9FFC", "#5227FF"]}
-        angle={0}
-        noise={0.3}
-        blindCount={12}
-        blindMinWidth={50}
-        spotlightRadius={0.5}
-        spotlightSoftness={1}
-        spotlightOpacity={1}
-        mouseDampening={0.15}
-        distortAmount={0}
-        shineDirection="left"
-        mixBlendMode="lighten"
+      <Plasma
+        color="#430bf9"
+        speed={0.6}
+        direction="forward"
+        scale={2}
+        opacity={0.8}
+        mouseInteractive={true}
       />
     </section>
   );
