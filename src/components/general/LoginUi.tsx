@@ -19,7 +19,7 @@ import Link from "next/link";
 export default function LoginUi() {
   return (
     <Card
-      className="login-card w-[25rem] min-h-[25rem] h-auto  bg-white/10 dark:bg-black/30 backdrop-blur-lg border border-white/20 
+      className="login-card w-[22rem] sm:w-[25rem] min-h-[25rem] h-auto  bg-white/10 dark:bg-black/30 backdrop-blur-lg border border-white/20 
         dark:border-gray-700 rounded-xl  "
     >
       <CardHeader className="text-white">
