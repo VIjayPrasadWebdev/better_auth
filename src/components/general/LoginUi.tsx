@@ -36,7 +36,7 @@ export default function LoginUi() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="vijay@example.com"
                 required
               />
             </div>
@@ -59,8 +59,8 @@ export default function LoginUi() {
         <Button type="submit" className="w-full cursor-pointer  bg-blue-700">
           Login
         </Button>
-        <Separator className="my-3" />
-        <div className="social-container flex items-center flex-col gap-3 w-full ">
+        {/* <Separator className="my-3" /> */}
+        <div className="social-container my-3 flex items-center flex-col gap-3 w-full ">
           <Button
             variant="ghost"
             size="icon"

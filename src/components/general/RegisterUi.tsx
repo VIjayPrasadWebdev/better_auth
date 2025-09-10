@@ -73,9 +73,9 @@ export default function RegisterUi() {
         <Separator className="my-3" />
         <div className="register-container">
           <p className="text-muted-foreground text-sm flex items-center gap-3">
-            Don't have an account?
-            <Link href="/register" className="underline cursor-pointer">
-              Register
+            Already have an account?
+            <Link href="/login" className="underline cursor-pointer">
+              Login
             </Link>
           </p>
         </div>
