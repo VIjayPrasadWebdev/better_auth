@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +17,45 @@ import { GitHubIcon } from "../icons/Github";
 import LinkedinIcon from "../icons/Linkedin";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
+import { signUp } from "@/lib/auth-client";
+import RegisterSubmitBtn from "./RegisterSubmitBtn";
+import { toast } from "sonner";
+import { format } from "date-fns";
+import { useRouter } from "next/navigation";
 export default function RegisterUi() {
+  let router = useRouter();
+  async function handleRegister(formData: FormData) {
+    // event.preventDefault();
+
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    // if (!name) return toast.error("Name is required");
+    // if (!email) return toast.error("Email is required");
+    // if (!password) return toast.error("Password is required");
+
+    const { data, error } = await signUp.email(
+      { name, email, password, callbackURL: "http://localhost:3000/dashboard" },
+      {
+        onRequest: () => {},
+
+        onError: (err) => {
+          toast.error(err.error.message);
+        },
+        onSuccess: (success) => {
+          console.log("success", success);
+
+          toast.success("User Registered Successfully", {
+            description: `User Created on ${format(new Date(), "MMM d YYY")} `,
+          });
+          router.push("/dashboard");
+        },
+      }
+    );
+    console.log("data", data, "error", error);
+  }
   return (
     <Card
       className="login-card w-[22rem] sm:w-[25rem] min-h-[25rem] h-auto  bg-white/10 dark:bg-black/30 backdrop-blur-lg border border-white/20 
@@ -29,7 +68,7 @@ export default function RegisterUi() {
         </CardDescription>
       </CardHeader>
       <CardContent className="text-white">
-        <form>
+        <form action={handleRegister}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
               <Label htmlFor="email">Name</Label>
@@ -37,8 +76,9 @@ export default function RegisterUi() {
                 id="name"
                 type="text"
                 placeholder="Vijayprasad"
-                required
                 className=""
+                name="name"
+                required
               />
             </div>
             <div className="grid gap-2">
@@ -47,6 +87,7 @@ export default function RegisterUi() {
                 id="email"
                 type="email"
                 placeholder="m@example.com"
+                name="email"
                 required
               />
             </div>
@@ -60,16 +101,15 @@ export default function RegisterUi() {
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required />
+              <Input id="password" type="password" required name="password" />
             </div>
+          </div>
+          <div className="grid gap-2">
+            <RegisterSubmitBtn />
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full cursor-pointer bg-blue-700">
-          Create an Account
-        </Button>
-
         <Separator className="my-3" />
         <div className="register-container">
           <p className="text-muted-foreground text-sm flex items-center gap-3">

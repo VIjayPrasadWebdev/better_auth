@@ -61,11 +61,7 @@ export default function LoginUi() {
         </Button>
         {/* <Separator className="my-3" /> */}
         <div className="social-container my-3 flex items-center flex-col gap-3 w-full ">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="w-full  cursor-pointer border-2 "
-          >
+          <Button variant="ghost" className="w-full  cursor-pointer border-2 ">
             <GoogleIcon className="h-18 w-18" />
             <span className="text-muted-foreground"></span> Login with Google
           </Button>
