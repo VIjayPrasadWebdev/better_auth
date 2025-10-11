@@ -2,10 +2,10 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { useFormStatus } from "react-dom";
+import { Loader2 } from "lucide-react";
 import { Spinner } from "../ui/spinner";
-// import { Loader2 } from "lucide-react";
 
-export default function RegisterSubmitBtn() {
+export default function LoginSubmitBtn() {
   let { pending } = useFormStatus();
   return (
     <Button
@@ -13,11 +13,7 @@ export default function RegisterSubmitBtn() {
       disabled={pending}
       className="mt-5 w-full cursor-pointer bg-blue-700"
     >
-      {pending ? (
-        <Spinner className="text-white size-6" />
-      ) : (
-        "Create an Account"
-      )}
+      {pending ? <Spinner className="text-white size-6" /> : "Login"}
     </Button>
   );
 }

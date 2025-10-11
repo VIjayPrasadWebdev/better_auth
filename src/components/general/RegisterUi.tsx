@@ -22,35 +22,58 @@ import RegisterSubmitBtn from "./RegisterSubmitBtn";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
+import z from "zod";
 export default function RegisterUi() {
+  const registerSchema = z.object({
+    name: z.string().min(3, "Name must be at least 3 characters"),
+    email: z.email("Enter a valid email address"),
+    password: z
+      .string()
+      .min(1, "Password is required")
+      .min(8, "Password must be at least 8 characters")
+      .regex(
+        /[^A-Za-z0-9]/,
+        "Password must contain at least one special character"
+      ),
+  });
+  type REGISTERTYPE = z.infer<typeof registerSchema>;
   let router = useRouter();
   async function handleRegister(formData: FormData) {
     // event.preventDefault();
 
     // await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    const result = registerSchema.safeParse({ name, email, password });
 
     // if (!name) return toast.error("Name is required");
     // if (!email) return toast.error("Email is required");
     // if (!password) return toast.error("Password is required");
 
+    if (!result.success) {
+      const issues = result.error.issues;
+
+      toast.error(issues[0].message);
+
+      return;
+    }
     const { data, error } = await signUp.email(
       { name, email, password, callbackURL: "http://localhost:3000/dashboard" },
       {
         onRequest: () => {},
 
         onError: (err) => {
-          toast.error(err.error.message);
+          toast.warning(err.error.message);
         },
         onSuccess: (success) => {
-          console.log("success", success);
+          //  console.log("success", success);
 
           toast.success("User Registered Successfully", {
             description: `User Created on ${format(new Date(), "MMM d YYY")} `,
           });
-          router.push("/dashboard");
+          router.push("/login");
         },
       }
     );
@@ -78,7 +101,6 @@ export default function RegisterUi() {
                 placeholder="Vijayprasad"
                 className=""
                 name="name"
-                required
               />
             </div>
             <div className="grid gap-2">
@@ -88,7 +110,6 @@ export default function RegisterUi() {
                 type="email"
                 placeholder="m@example.com"
                 name="email"
-                required
               />
             </div>
             <div className="grid gap-2">
@@ -101,7 +122,7 @@ export default function RegisterUi() {
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required name="password" />
+              <Input id="password" type="password" name="password" />
             </div>
           </div>
           <div className="grid gap-2">

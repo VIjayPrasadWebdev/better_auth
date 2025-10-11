@@ -22,8 +22,6 @@ type USER = {
   createdAt: any;
 };
 export default async function DashboardCardUi({ user }: any) {
-  if (!user) return <p>Please Login</p>;
-
   // const user = {
   //   name: "John Doe",
   //   email: "john.doe@example.com",
@@ -32,6 +30,11 @@ export default async function DashboardCardUi({ user }: any) {
   //   createdAt: new Date(),
   // };
 
+  const initials = user.name
+    .split(" ")
+    .filter(Boolean)
+    .map((part: any) => part[0])
+    .join("");
   return (
     <article className="w-screen   flex lg:items-start lg:justify-start justify-center items-center">
       <Card className="w-[90%] dashboard-card text-white">
@@ -49,10 +52,10 @@ export default async function DashboardCardUi({ user }: any) {
             <div className="flex flex-col items-center gap-3">
               <Avatar className="h-32 w-32">
                 <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
+                  src={user.image || "https://github.com/shadcn.png"}
+                  alt={user ? user.name : "userpic"}
                 />
-                <AvatarFallback>JN</AvatarFallback>
+                <AvatarFallback>{user ? initials : "SN"}</AvatarFallback>
               </Avatar>
               {/* {user.role && (
                 <Badge>

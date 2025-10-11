@@ -37,13 +37,13 @@ export default function HeroContentUi() {
         Authentication with Better Auth and Next.js
       </h1>
       <p
-        className={`${MonteFont.className} text-muted mt-3 text-base sm:text-lg opacity-90`}
+        className={`${MonteFont.className} text-foreground mt-3 text-base sm:text-lg opacity-90`}
       >
         A step-by-step guide to implementing secure and modern authentication in
         your Next.js apps
       </p>
       <div className="mx-auto mt-6 flex max-w-sm flex-col gap-3 sm:flex-row sm:justify-center">
-        <Button variant="secondary" className="py-2 px-4">
+        <Button variant="default" className="py-2 px-4">
           <Link href="/dashboard">Go to Dashboard</Link>
         </Button>
         <Button

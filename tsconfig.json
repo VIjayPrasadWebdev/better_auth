@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/(Auth_Layout)/login"
+    "src/app/(Auth_Layout)/login",
+    "src/middleware.tss"
   ],
   "exclude": ["node_modules"]
 }

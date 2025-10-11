@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    authInterrupts: true,
+  },
   images: {
     domains: [
       "images.unsplash.com",

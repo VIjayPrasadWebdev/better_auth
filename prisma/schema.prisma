@@ -24,6 +24,9 @@ model User {
   emailVerified Boolean
   image         String?
   role          String?
+  banned        Boolean   @default(false)  // Add this - required by admin plugin
+  banReason     String?                     // Optional - stores ban reason
+  banExpires    DateTime?                   // Optional - for temporary bans
   createdAt     DateTime
   updatedAt     DateTime
   sessions      Session[]

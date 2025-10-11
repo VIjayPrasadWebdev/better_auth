@@ -6,8 +6,10 @@ import Link from "next/link";
 import { CodeXml } from "lucide-react";
 import Profile from "./profileUi";
 import { ModeToggle } from "./ModeUi";
-
+import { getSession } from "@/lib/get-session";
 export default async function Navbar() {
+  let session = await getSession();
+  let user = session?.user;
   return (
     <header className="flex justify-center items-center">
       <nav className="fixed top-0 w-3/6  mx-auto mt-4 px-5  py-3 rounded-full flex justify-between items-center">
@@ -37,7 +39,7 @@ export default async function Navbar() {
         </div>
         <article className="flex items gap-3">
           {/* <ModeToggle /> */}
-          <Profile />
+          <Profile user={user} />
         </article>
       </nav>
     </header>
