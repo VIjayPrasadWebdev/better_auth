@@ -27,14 +27,14 @@ export default function RegisterUi() {
   const registerSchema = z.object({
     name: z.string().min(3, "Name must be at least 3 characters"),
     email: z.email("Enter a valid email address"),
-    password: z
-      .string()
-      .min(1, "Password is required")
-      .min(8, "Password must be at least 8 characters")
-      .regex(
-        /[^A-Za-z0-9]/,
-        "Password must contain at least one special character"
-      ),
+    // password: z
+    //   .string()
+    //   .min(1, "Password is required")
+    //   .min(8, "Password must be at least 8 characters")
+    //   .regex(
+    //     /[^A-Za-z0-9]/,
+    //     "Password must contain at least one special character"
+    //   ),
   });
   type REGISTERTYPE = z.infer<typeof registerSchema>;
   let router = useRouter();
@@ -60,7 +60,7 @@ export default function RegisterUi() {
       return;
     }
     const { data, error } = await signUp.email(
-      { name, email, password, callbackURL: "http://localhost:3000/dashboard" },
+      { name, email, password, callbackURL: "/email-verified" },
       {
         onRequest: () => {},
 

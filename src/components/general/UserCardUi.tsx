@@ -13,7 +13,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 export default function UserCardUi({ user }: any) {
   let { name, email } = user;
   return (
-    <Card className="user-profile-card w-[390px]">
+    <Card className="user-profile-card  w-[280px] md:w-[350px]  lg:w-[390px]">
       <CardHeader className="flex flex-col justify-start items-center">
         <CardTitle className="flex items-center gap-2">
           <UserIcon className="size-5" />

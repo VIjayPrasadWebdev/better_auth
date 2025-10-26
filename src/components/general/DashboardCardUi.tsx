@@ -13,7 +13,7 @@ import { format } from "date-fns";
 import { Badge } from "../ui/badge";
 import { CalendarDaysIcon, MailIcon, ShieldIcon, UserIcon } from "lucide-react";
 import { getSession } from "@/lib/get-session";
-
+import EmailVerfiedUi from "./EmailVerfiedUi";
 type USER = {
   name: string;
   email: string;
@@ -36,7 +36,9 @@ export default async function DashboardCardUi({ user }: any) {
     .map((part: any) => part[0])
     .join("");
   return (
-    <article className="w-screen   flex lg:items-start lg:justify-start justify-center items-center">
+    <article className="w-screen   flex flex-col lg:items-start lg:justify-start justify-center items-center gap-3">
+      {!user.emailVerified && <EmailVerfiedUi />}
+
       <Card className="w-[90%] dashboard-card text-white">
         <CardHeader className="flex flex-col justify-start items-start">
           <CardTitle className="flex items-center gap-2">
@@ -55,14 +57,17 @@ export default async function DashboardCardUi({ user }: any) {
                   src={user.image || "https://github.com/shadcn.png"}
                   alt={user ? user.name : "userpic"}
                 />
-                <AvatarFallback>{user ? initials : "SN"}</AvatarFallback>
+                <AvatarFallback>{user ? initials : "GU"}</AvatarFallback>
               </Avatar>
-              {/* {user.role && (
-                <Badge>
-                  <ShieldIcon className="size-3" />
-                  {user.role}
+              {user.role == "Admin" && (
+                <Badge
+                  variant="secondary"
+                  className="bg-blue-500 text-white dark:bg-blue-600 px-3 py-1.5"
+                >
+                  <ShieldIcon className="size-6" />
+                  <p className="text-sm"> {user.role}</p>
                 </Badge>
-              )} */}
+              )}
             </div>
 
             <div className="flex-1 text-left space-y-4">

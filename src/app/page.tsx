@@ -4,7 +4,7 @@ import HeroUi from "@/components/general/HeroUi";
 export default function Home() {
   return (
     <main className="relative  flex h-screen w-screen items-center justify-center overflow-hidden">
-      {/* <HeroUi /> */}
+      {<HeroUi />}
 
       <HeroContentUi />
     </main>

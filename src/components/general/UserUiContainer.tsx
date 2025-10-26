@@ -15,9 +15,11 @@ import { UserIcon } from "lucide-react";
 export default async function UserUiContainer() {
   let users = await GetUsers();
   return (
-    <main
+    <section
       className={`h-full ${
-        users.length > 0 ? "grid grid-cols-1  lg:grid-cols-3" : "flex w-full"
+        users.length > 0
+          ? "flex flex-col justify-center items-center lg:grid md:grid  grid-cols-1  md:grid-cols-2    lg:grid-cols-3 gap-3"
+          : "flex w-full"
       }  items-center justify-center p-6`}
     >
       {users.length > 0 ? (
@@ -40,6 +42,6 @@ export default async function UserUiContainer() {
           </Card>
         </article>
       )}
-    </main>
+    </section>
   );
 }

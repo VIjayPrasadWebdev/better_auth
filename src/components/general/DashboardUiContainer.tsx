@@ -4,6 +4,7 @@ import DashboardDescUi from "./DashboardDescUi";
 import DashboardCardUi from "./DashboardCardUi";
 import { getSession } from "@/lib/get-session";
 import { unauthorized } from "next/navigation";
+import EmailVerfiedUi from "./EmailVerfiedUi";
 
 export default async function DashboardUiContainer() {
   let session = await getSession();

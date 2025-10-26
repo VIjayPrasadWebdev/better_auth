@@ -11,7 +11,7 @@ export default function RegisterSubmitBtn() {
     <Button
       type="submit"
       disabled={pending}
-      className="mt-5 w-full cursor-pointer bg-blue-700"
+      className="mt-5 w-full cursor-pointer bg-blue-700 text-white"
     >
       {pending ? (
         <Spinner className="text-white size-6" />
