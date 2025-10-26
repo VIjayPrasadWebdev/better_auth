@@ -24,7 +24,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export default function Profile({ user }: any) {
-  let isAdmin = user.role == "admin";
+  let isAdmin = user.role == "Admin";
   let router = useRouter();
   async function handleSignout() {
     await signOut({
