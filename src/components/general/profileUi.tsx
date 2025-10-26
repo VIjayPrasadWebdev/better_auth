@@ -67,7 +67,7 @@ export default function Profile({ user }: any) {
 
         {isAdmin && (
           <DropdownMenuItem>
-            <Link href="/dashboard/userprofile">User Profiles</Link>
+            <Link href="/admin">Admin page</Link>
             <DropdownMenuShortcut>⌘G</DropdownMenuShortcut>
           </DropdownMenuItem>
         )}
