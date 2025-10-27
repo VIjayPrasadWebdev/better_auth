@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="relative z-10 w-full text-center text-white">
+    <main className="relative z-50 w-full text-center text-white">
       <HeroUi />
       {children}
       <Toaster richColors />

@@ -26,7 +26,10 @@ export default function EmailVerfiedUi() {
           </ItemDescription> */}
         </ItemContent>
         <ItemActions>
-          <Button variant="outline">
+          <Button
+            variant="outline"
+            className="bg-white cursor-pointer w-full block justify-center"
+          >
             <Link href="/verify-email">Verify Email</Link>
           </Button>
         </ItemActions>

@@ -66,7 +66,7 @@ export default function EmailVerfiedLinkButtonUi({ email }: any) {
 
       <Button
         variant="outline"
-        className="mt-3 cursor-pointer w-full block justify-center"
+        className="mt-3 bg-white cursor-pointer w-full block justify-center"
         disabled={loading}
         onClick={handleEmailVerfication}
       >
