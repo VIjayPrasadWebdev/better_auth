@@ -43,12 +43,12 @@ export default function HeroContentUi() {
         your Next.js apps
       </p>
       <div className="mx-auto mt-6 flex max-w-sm flex-col gap-3 sm:flex-row sm:justify-center">
-        <Button variant="default" className="py-2 px-4">
+        <Button className="bg-white lg:h-auto md:h-auto h-10 lg:py-2 md:py-2 py-4 px-4">
           <Link href="/dashboard">Go to Dashboard</Link>
         </Button>
         <Button
           variant="ghost"
-          className="py-2 px-4 border border-muted-foreground hero-login-btn"
+          className="lg:py-2 md:py-2 py-4 px-4 lg:h-auto md:h-auto h-10 border border-muted-foreground hero-login-btn"
         >
           <Link href="/login">Sign In</Link>
         </Button>

@@ -51,7 +51,7 @@ export default async function DashboardCardUi({ user }: any) {
         </CardHeader>
         <CardContent className="flex flex-col justify-start items-start">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col justify-start items-start gap-3">
               <Avatar className="h-32 w-32">
                 <AvatarImage
                   src={user.image || "https://github.com/shadcn.png"}
@@ -62,7 +62,7 @@ export default async function DashboardCardUi({ user }: any) {
               {user.role == "Admin" && (
                 <Badge
                   variant="secondary"
-                  className="bg-blue-500 text-white dark:bg-blue-600 px-3 py-1.5"
+                  className="bg-blue-500 flex justify-center items-center lg:w-full md:w-full w-auto  lg:ml-0 md:ml-0 ml-5 text-white dark:bg-blue-600 px-3 py-1.5"
                 >
                   <ShieldIcon className="size-6" />
                   <p className="text-sm"> {user.role}</p>

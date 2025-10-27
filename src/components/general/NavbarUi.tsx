@@ -12,7 +12,7 @@ export default async function Navbar() {
   let user = session?.user;
   return (
     <header className="flex justify-center items-center">
-      <nav className="fixed top-0 w-3/6  mx-auto mt-4 px-5  py-3 rounded-full flex justify-between items-center">
+      <nav className="fixed top-0 lg:w-3/6 md:w-3/6 w-5/6  mx-auto mt-4 px-5  py-3 rounded-full flex justify-between items-center">
         <Link href="/" className="flex items-center gap-4">
           <Button
             size="icon"

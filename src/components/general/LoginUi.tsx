@@ -138,7 +138,7 @@ export default function LoginUi() {
               <Spinner className="text-white size-6" />
             ) : (
               <>
-                <GoogleIcon className="h-18 w-18" />
+                <GoogleIcon className="h-6 w-6 size-5" />
                 <span className="text-muted-foreground"></span> Login with
                 Google
               </>
@@ -155,19 +155,19 @@ export default function LoginUi() {
               <Spinner className="text-white size-6" />
             ) : (
               <>
-                <GitHubIcon className="h-10 w-10" />
+                <GitHubIcon className="h-6 w-6 size-5" />
                 <span className="text-muted-foreground"></span>Login with Github
               </>
             )}
           </Button>
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             className="w-full  cursor-pointer border-2"
           >
             <LinkedinIcon className="h-10 w-10" />
             <span className="text-muted-foreground"></span> Login with Linkedin
-          </Button>
+          </Button> */}
         </div>
 
         <Separator className="my-3" />
