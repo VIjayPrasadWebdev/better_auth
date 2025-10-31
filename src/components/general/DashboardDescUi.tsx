@@ -6,7 +6,7 @@ export default function DashboardDescUi({ user }: any) {
       <h2 className="text-2xl hidden lg:block">Dashboard</h2>
       <p className="lg:mt-0 md:mt-0 mt-[8rem]">
         Hey
-        <span className="font-bold ml-2">{user ? user.name : "Guest"}</span>
+        <span className="font-bold mx-2">{user ? user.name : "Guest"}</span>
         Welcome back! Here's your account overview
       </p>
     </article>
