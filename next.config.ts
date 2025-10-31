@@ -9,12 +9,27 @@ const nextConfig: NextConfig = {
     authInterrupts: true,
   },
   images: {
-    domains: [
-      "images.unsplash.com",
-      "github.com",
-      "avatars.githubusercontent.com",
-      "lh3.googleusercontent.com",
-      "gravatar.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "github.com",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "gravatar.com",
+      },
     ],
   },
 };

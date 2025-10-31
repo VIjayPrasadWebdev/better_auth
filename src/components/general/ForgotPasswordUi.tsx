@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Card,
   CardAction,
@@ -11,7 +12,47 @@ import {
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Input } from "../ui/input";
+import { requestPasswordReset } from "@/lib/auth-client";
+import { toast } from "sonner";
+import ForgotPasswordBtn from "./ForgotPasswordBtn";
+import { useRouter } from "next/navigation";
 export default function ForgotPasswordUi() {
+  let router = useRouter();
+  let [loading, setloading] = useState<boolean>(false);
+  async function handleForgotpassword(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setloading(true);
+    try {
+      let formdata = new FormData(event.currentTarget);
+
+      let email = formdata.get("email") as string;
+      if (!email) {
+        toast.error("Please enter the email");
+        return;
+      }
+      let { data, error } = await requestPasswordReset(
+        {
+          email,
+
+          redirectTo: "/reset-password",
+        },
+        {
+          onSuccess: () => {
+            toast.success(
+              "If an account exists for this email then we've send an reset password link"
+            );
+          },
+          onError: (err) => {
+            toast.error(err.error.message || "Something went wrong");
+          },
+        }
+      );
+    } catch (err: any) {
+      toast.error(err.message);
+    } finally {
+      setloading(false);
+    }
+  }
   return (
     <section>
       <div className="forgot-password-desc flex flex-col justify-center items-center gap-2">
@@ -28,10 +69,10 @@ export default function ForgotPasswordUi() {
           </CardHeader>
 
           <CardContent className="flex flex-col gap-3">
-            <Input placeholder="Enter your email " />
-            <Button className="mt-3 bg-white cursor-pointer w-full block justify-center">
-              Send Reset Link
-            </Button>
+            <form onSubmit={handleForgotpassword}>
+              <Input placeholder="Enter your email " name="email" />
+              <ForgotPasswordBtn loading={loading} />
+            </form>
           </CardContent>
         </Card>
       </article>

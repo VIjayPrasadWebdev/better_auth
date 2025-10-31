@@ -28,6 +28,19 @@ export const auth = betterAuth({
     // autoSignIn: false,
     //  requireEmailVerification: true, // Only if you want to block the email verification
 
+    // reset password / forgot password :
+
+    sendResetPassword: async ({ user, url }) => {
+      await mailActions({
+        to: user.email,
+        subject: "Reset your Password",
+        meta: {
+          description: "Please click the link to reset your Password",
+          link: String(url),
+        },
+      });
+    },
+
     // we can use our own hashing algorithm for password instead of the default better-auth hasing algorithm
     password: {},
   },

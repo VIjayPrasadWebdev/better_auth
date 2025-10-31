@@ -30,7 +30,7 @@ export default function RegisterUi() {
     password: z
       .string()
       .min(1, "Password is required")
-      .min(8, "Password must be at least 8 characters")
+      .min(5, "Password must be at least 5 characters")
       .regex(
         /[^A-Za-z0-9]/,
         "Password must contain at least one special character"
