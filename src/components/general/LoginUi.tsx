@@ -44,7 +44,7 @@ export default function LoginUi() {
       return;
     }
     let { data, error } = await signIn.email(
-      { email, password },
+      { email, password, callbackURL: "/dashboard" },
       {
         onError: (err) => {
           toast.warning(err.error.message);
